@@ -17,7 +17,7 @@
   connection: local
   changed_when: true
   command:
-    cmd: "chmod 400 ~/.ssh/id_rsa"
+    cmd: "chmod 0644 ~/.ssh/id_rsa"
 
 - name: Update  apt packages on {{ target }} remote machine
   apt:
