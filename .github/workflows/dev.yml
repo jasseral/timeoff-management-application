@@ -11,8 +11,6 @@ jobs:
         working-directory: ansible
     steps:
       - uses: actions/checkout@v1
-      - run: ls -la ~/.ssh/
-      - run: cat ~/.ssh/
       - run: sudo apt-get install python3 python3-pip ruby -y 
       - run: pip install --upgrade pip
       - run: pip install docker
@@ -20,5 +18,5 @@ jobs:
       - run: echo ${{ secrets.ANSIBLE_VAULT_PASSWORD }} > .vault_pass.txt
       - run: ansible-galaxy install -r requirements.yml
       #- run: ansible-playbook playbooks/builder.yml -v
-      - run: ansible-playbook playbooks/deployment.yml -t deploy-gorilla -e "ansible_user=root" -e "ansible_ssh_private_key_file=/root/.ssh/id_rsa" -vvv
+      - run: ansible-playbook playbooks/deployment.yml -t deploy-gorilla -e "ansible_user=root" -e "ansible_ssh_private_key_file=/home/runner/.ssh/id_rsa" -vvv
       

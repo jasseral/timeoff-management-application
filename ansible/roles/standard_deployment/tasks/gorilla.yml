@@ -3,7 +3,7 @@
   connection: local
   changed_when: true
   command:
-    cmd: "mkdir ~/.ssh"
+    cmd: "mkdir -p /home/runner/.ssh/"
   ignore_errors: true
   
 - name: Creating private key
@@ -17,7 +17,7 @@
   connection: local
   changed_when: true
   command:
-    cmd: "chmod 400 ~/.ssh/id_rsa"
+    cmd: "chmod 400 /home/runner/.ssh/id_rsa"
 
 - name: Update  apt packages on {{ target }} remote machine
   apt:
