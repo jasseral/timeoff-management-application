@@ -12,8 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: sudo apt-get install python3 python3-pip ruby -y 
-      - run: sudo pip install --upgrade pip
-      - run: sudo pip install ansible
+      - run: pip install --upgrade pip
+      - run: pip install docker
+      - run: pip install ansible
       - run: echo ${{ secrets.ANSIBLE_VAULT_PASSWORD }} > .vault_pass.txt
       - run: ansible-galaxy install -r requirements.yml
       - run: ansible-playbook playbooks/builder.yml -v
@@ -29,6 +30,7 @@ jobs:
       - uses: actions/checkout@v1
       - run: sudo apt-get install python3 python3-pip ruby -y 
       - run: pip install --upgrade pip
+      - run: pip install docker
       - run: pip install --upgrade ansible
       - run: echo ${{ secrets.ANSIBLE_VAULT_PASSWORD }} > .vault_pass.txt
       - run: ansible-galaxy install -r requirements.yml
