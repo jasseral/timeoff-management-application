@@ -3,7 +3,7 @@
   connection: local
   changed_when: true
   command:
-    cmd: "mkdir /root/.ssh"
+    cmd: "mkdir ~/.ssh"
   ignore_errors: true
   
 - name: Creating private key
