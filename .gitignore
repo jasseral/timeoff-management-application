@@ -7,10 +7,8 @@ node_modules/
 
 # Devops Files
 #-------------------------
-/ansible/.vagrant
-/ansible/notes.md
-/ansible/.vault_pass.txt
-/ansible/ansible_collections
-/ansible/galaxies
+ansible/.vault_pass.txt
+ansible/ansible_collections
+ansible/galaxies
 
 
