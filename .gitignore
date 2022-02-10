@@ -5,3 +5,10 @@
 *.swm
 node_modules/
 *.sqlite
+
+# Devops Files
+#-------------------------
+/ansible/.vault_pass.txt
+/ansible/ansible_collections
+/ansible/galaxies
+
