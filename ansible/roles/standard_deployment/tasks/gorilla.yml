@@ -13,11 +13,11 @@
     content: |
       {{ ANSIBLE_SSH_PRIVATE_KEY_FILE }}
 
-- name: change permisions 
-  connection: local
-  changed_when: true
-  command:
-    cmd: "chmod 400 /home/runner/.ssh/id_rsa"
+# - name: change permisions 
+#   connection: local
+#   changed_when: true
+#   command:
+#     cmd: "chmod 400 /home/runner/.ssh/id_rsa"
 
 - name: Update  apt packages on {{ target }} remote machine
   apt:
