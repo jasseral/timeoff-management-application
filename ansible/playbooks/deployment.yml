@@ -1,0 +1,4 @@
+---
+- import_playbook: deployment_init.yml
+  vars:
+    target: default-target

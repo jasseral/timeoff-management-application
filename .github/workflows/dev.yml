@@ -1,0 +1,35 @@
+name: Gorilla test builder & deploy 
+on:
+  push:
+    branches:
+      - master # ASAP 1h gorilla test
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ansible
+    steps:
+      - uses: actions/checkout@v1
+      - run: sudo apt-get install python3 python3-pip ruby -y 
+      - run: sudo pip install --upgrade pip
+      - run: sudo pip install ansible
+      - run: echo ${{ secrets.ANSIBLE_VAULT_PASSWORD }} > .vault_pass.txt
+      - run: ansible-galaxy install -r requirements.yml
+      - run: ansible-playbook playbooks/builder.yml -v
+     
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ansible
+    steps:
+      - uses: actions/checkout@v1
+      - run: sudo apt-get install python3 python3-pip ruby -y 
+      - run: pip install --upgrade pip
+      - run: pip install --upgrade ansible
+      - run: echo ${{ secrets.ANSIBLE_VAULT_PASSWORD }} > .vault_pass.txt
+      - run: ansible-galaxy install -r requirements.yml
+      - run: ansible-playbook playbooks/deployment.yml -t deploy-gorilla -v

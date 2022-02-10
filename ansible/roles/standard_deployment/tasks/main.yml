@@ -1,0 +1,5 @@
+---
+  - import_tasks: gorilla.yml
+    become: true 
+    tags:
+      - deploy-gorilla

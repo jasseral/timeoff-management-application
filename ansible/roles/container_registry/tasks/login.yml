@@ -1,0 +1,6 @@
+---
+ - name: Log into the container registry on local execution
+   community.docker.docker_login:
+     registry_url: "{{ DOCKER_REGISTRY }}"
+     username: "{{ DOCKER_USER }}"
+     password: "{{ DOCKER_PASS }}"
