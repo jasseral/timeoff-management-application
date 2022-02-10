@@ -17,5 +17,5 @@ jobs:
       - run: pip install ansible
       - run: echo ${{ secrets.ANSIBLE_VAULT_PASSWORD }} > .vault_pass.txt
       - run: ansible-galaxy install -r requirements.yml
-      - run: ansible-playbook playbooks/builder.yml -v
-      - run: ansible-playbook playbooks/deployment.yml -t deploy-gorilla -v
+      #- run: ansible-playbook playbooks/builder.yml -v
+      - run: ansible-playbook playbooks/deployment.yml -t deploy-gorilla -vvv
